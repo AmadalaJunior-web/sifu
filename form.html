@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <style>
+                *{
+                        box-sizing: border-box;
+                }
+                body{
+                        background: #081b29;
+                        align-items: center;
+                }
+                p{
+                        color: white;
+                        text-align: center;
+                }
+                .content{
+                        padding: 40px;
+                        background: transparent;
+                        align-items: center;
+                        justify-content: space-around;
+                 display: flex;
+                 flex-wrap: wrap;
+                 width: 100%;
+                 height:100vh;
+                 margin-top: 10px;
+                }
+                .contents{
+                        background: transparent;
+                        padding: 40x;
+                 border-radius: 20px;                               border: solid rgba(255, 255, 255, 0.1) 2px;
+                }
+                input {
+                        margin: 10px;
+                }
+                #first{
+                        color: whitesmoke;
+                        font-size: 18px;
+                        width: 95%px;
+                        padding: 10px;
+                        border-radius: 10px;
+                        background: transparent;
+                        border:solid rgba(255, 255, 255, 0.1) 2px ;
+                }
+                h2{
+                        color: white;
+                        text-align: center;
+
+                }
+                label{
+                        color: ghostwhite;
+                        font-size: 18px;
+                }
+                #forgot{
+                        text-decoration: none;
+                        color: green;
+                }
+                .button{
+                        align-items: center;
+                        justify-content: space-around;
+                        flex-wrap: flex;
+                        display: flx;
+                        background: transparent;
+                        width: 100%;
+                        padding:30px;
+                }
+                .button .submit{
+                        width: 120px;
+                        height:40px;
+                        color: white;
+                        background: transparent;
+                        margin-bottom: 15px;
+                        margin-left:43px;
+                        border: solid green 2px;
+                        border-radius: 10px;
+                }
+                .button a{
+                        align-self: center;
+                        text-decoration: none;
+                        color: white;
+                        width: 125px;
+                        height:40px;
+                        border:solid darkred 2px;
+                        margin-bottom :15px;
+                        display: inline-flex;
+    height :;
+    border-radius: 8px;
+   /* display: inline-flex;*/
+    font-size: 14px;
+    letter-spacing: 1px;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+                }
+                
+        </style>
+</head>
+
+<body>
+        <div class="content">
+                <div class="contents">
+        <h2>
+               CODE BASE CAPITAL LIMITTED <!--Tab to edit-->
+        </h2>
+        <p>sign in</p>
+        <div class="form">
+        <form action="">
+                <label for="phoneNumber">Phone Number</label><br />
+                <input type="text" name="phoneNumber" id="first" value="" placeholder="0xxxxxxxxx"/><br />
+                <label for="Password">Password</label><br />
+                <input type="text" name="Password" id="first" value="" placeholder="Password........"/><br />
+                <input type="checkbox" name="remember" id="remember" value="" style="text-decoration:none;background: black;border: solid black 1px;"/><label for="Remember me">Remember me</label>
+        </form>
+        </div>
+        <a href="/email.html" id="forgot">Forgot password</a><br />
+        <div class="button">
+        <button type="submit" class="submit" onclick="myFunc()">Sign in</button><br />
+        <a href="/formtwo.html" class="one" style="margin-left:43px;">Sign up</a><br />
+        <a href="#" style="width:200px;height:35px;border:solid green 2px;background:green;">Download Our Mobile App</a>
+        </div>
+        </div>
+        </div>
+        <script>
+                function myFunc(){
+                        window.location.href='/file.html';
+                }
+        </script>
+        </body>
+
+</html>

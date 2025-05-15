@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investment Platform</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+     /* display: flex;
+      flex-direction: column;
+      align-items: center;*/
+    }
+    /* Header */
+    header {
+      background: #000;
+    }
+            .navbar {
+            background: transparent;
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .navbar h1 {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .menu-button {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-button div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hidden Menu */
+        .menu {
+            position: absolute;
+            top: 60px;
+            right: 60%;
+            background: #081b29;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            display: none;
+            flex-direction: column;
+            padding: 10px;
+            width: 150px;
+            height:100vh;
+        }
+
+        .menu a {
+            padding: 10px;
+            text-decoration: none;
+            color: #dfdfdf;
+            background: #081B29oko;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        /* Active Menu Animation */
+        .menu.show {
+            display: flex;
+        }
+
+        /* Transform menu button into "X" shape */
+        .menu-button.open div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-button.open div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-button.open div:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        #button{
+          margin-left :4%;
+          padding:0 80px 65px 65px;
+        }
+        #button  .button {
+          margin-left: 15px;
+          color: #dfdfdfdf;
+          height:37px;
+          width: 80px;
+          border-radius: 10px;
+        }
+
+    /* Investment container */
+    /*.investment-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0px 0px;
+      max-width: 1200px;
+      margin: 20px auto;
+    }*/
+    /* Each investment card */
+    .investment-card {
+      background: #000;
+      width: 100%;
+      border-radius: 10x;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      /*padding: 0px;
+      transition: transform 0.3s, box-shadow 0.3s;*/
+    }
+    .investment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .investment-card img {
+      width: 100%;
+      display: block;
+      margin: 0 auto 15px;
+    }
+    .investment-card h2 {
+      font-size: 20x;
+      padding: 10px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .investment-card p {
+      font-size: 16px;
+      padding: 10px;
+      margin: 5px 0;
+      color: #dfdfdd;
+    }
+    .investment-card p strong {
+      color: #ffffff;
+    }
+    .invest-btn {
+      margin-top: 15px;
+      background: transparent;
+      border: solid rgba(255, 255,255, 0.29);
+      color: #fff;
+      padding: 10px;
+      width: 120px;
+      border-radius: 5px;
+      font-size: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .invest-btn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+        <div class="menu-button" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div><img src="/Screenshot_20250515-110411_2.jpg" style="width: 70px;height: 60px;"/></div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="#">Home</a>
+        <a href="#">Investments</a>
+        <a href="#">Profile</a>
+        <a href="#">Logout</a>
+    </div>
+
+  </header>
+  <h3 style="color: #dfdfdf;text-align: center;">
+    My Wallet<!--Tab to edit-->
+  </h3>
+  <p style="color: #dfdfdf;text-align: center;">Total Balance</p>
+  <h2 style="color: white;text-align: center;">
+   KES 0.0 <!--Tab to edit-->
+  </h2>
+  <div id="button">
+<button class="button" type="submit" style="background: seagreen;">Withdraw</button>
+<button id="depositBtn" class="button" type="" style="background: transparent;border: solid rgba(255, 255, 255, 0.3);" onclick="applyForm()">Deposit</button>
+</div>
+<div class="activate">
+<p style="color: #dfdfdf;">You have not activated your earnings today.</p>
+<button class="button" type="" style="background: seagreen;width: 120px;padding: 10px;border-radius: 10px;" onclick="alert('activation successful')">Activate Now</button>
+
+<img src="/Screenshot_20250515-110402_2.jpg" style="width: 100%;"/>
+</div>
+  <div class="investment-container">
+    <!-- Order interchanged: first card is now Kakuzi- (originally second)--> 
+    <div class="investment-card">
+      <h2>Available Portfolios</h2>
+      <p>own a self-driving robotic taxi and let it work for you, all from the comfort of your home</p>
+      <img src="/Screenshot_20250515-110418_1.jpg" />
+      <p></p>Co-operative bank of Kenya </p>
+            <h2><strong>KES 2,500.0</strong></h2>
+      <p>Daily Earnings: <strong>KES 850.0 (+33.78%)</strong></p>
+      <p>Earning Period: <strong>6 Months</strong></p>
+      <button class="invest-btn">Invest/Hire Now -</button>
+    </div>
+
+    <div class="investment-card">
+      <img/>
+      <h2></h2>
+      <img src="/Screenshot_20250515-110438_1.jpg"/>
+      <p>CIC Insurance group <br /> Investment Amount: <strong>KES 18,500.0</strong></p>
+      <p>Daily Earnings: <strong>KES 6,250.0 (+33.78%)</strong></p>
+      <p>Earning Period: <strong>6 Months</strong></p>
+      <button class="invest-btn">Invest/Hire Now -</button>
+    </div>
+
+    <!-- Second card becomes Jubilee (originally first)--> 
+    <div class="investment-card">
+      <img/>
+      <h2></h2>
+      <img src="/Screenshot_20250515-110450_1.jpg"/>
+      <p>Kakuzi <br /> Investment Amount: <strong>KES 37,500.0</strong></p>
+      <p>Daily Earnings: <strong>KES 12,750.0 (+34.00%)</strong></p>
+      <p>Earning Period: <strong>6 Months</strong></p>
+      <button class="invest-btn">Invest/Hire Now -</button>
+    </div>
+
+    <!-- Additional Cards from the continuation -->
+    <div class="investment-card">
+      <img  />
+      <h2></h2>
+      <img src="/Screenshot_20250515-110508_1.jpg"/>
+      <p>Jubilee Insurance <br /> Investment Amount: <strong>KES 25,000.0</strong></p>
+      <p>Daily Earnings: <strong>KES 8,750.0 (+35.00%)</strong></p>
+      <p>Earning Period: <strong>6 Months</strong></p>
+      <button class="invest-btn">Invest/Hire Now -</button>
+    </div>
+
+    <div class="investment-card">
+      <img />
+      <h2></h2>
+      <img src="/Screenshot_20250515-110519_1.jpg"/>
+      <p>Bamburi Cement <br /> Investment Amount: <strong>KES 45,000.0</strong></p>
+      <p>Daily Earnings: <strong>KES 15,500.0 (+34.50%)</strong></p>
+      <p>Earning Period: <strong>6 Months</strong></p>
+      <button class="invest-btn">Invest/Hire Now -</button>
+    </div>
+
+    <div class="investment-card">
+      <img/>
+      <h2></h2>
+      <img src="/Screenshot_20250515-110525_1.jpg"/>
+      <p>Standard Chartered<br /> Investment Amount: <strong>KES 22,000.0</strong></p>
+      <p>Daily Earnings: <strong>KES 7,000.0 (+32.00%)</strong></p>
+      <p>Earning Period: <strong>6 Months</strong></p>
+      <button class="invest-btn">Invest/Hire Now -</button>
+    </div>
+
+    <div class="investment-card">
+      <img/>
+      <h2></h2>
+      <img src="/Screenshot_20250515-110538_1.jpg"/>
+      <p>KenGen <br /> Investment Amount: <strong>KES 50,000.0</strong></p>
+      <p>Daily Earnings: <strong>KES 17,250.0 (+35.50%)</strong></p>
+      <p>Earning Period: <strong>6 Months</strong></p>
+      <button class="invest-btn">Invest/Hire Now -</button>
+    </div>
+        <div class="investment-card">
+      <img/>
+      <h2></h2>
+      <img src="/Screenshot_20250515-110547_1.jpg"/>
+      <p>Safaricom <br /> Investment Amount: <strong>KES 350,000.0</strong></p>
+      <p>Daily Earnings: <strong>KES 17,250.0 (+35.50%)</strong></p>
+      <p>Earning Period: <strong>6 Months</strong></p>
+      <button class="invest-btn">Invest/Hire Now -</button>/Screenshot_20250515-110547_1.jpg
+    </div>
+
+  </div>
+  <button id="deposit" class="button" type="" style="background: transparent;border: solid rgba(255, 255, 255, 0.3);">Deposit</button>
+  <footer class="footer" style="color: whitesmoke;font-size: 18px;text-align: center;">
+    Copyright &copy; 2025. All Rights Reserved By <b style="color: green;">Code Base Capital Limited </b>
+  </footer>
+
+  <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            const menuButton = document.querySelector(".menu-button");
+            menu.classList.toggle("show");
+            menuButton.classList.toggle("open");
+        }
+    // Attach an event listener to each Invest Now button
+    document.querySelectorAll('.invest-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        // Retrieve the company name from the card's <h2>
+        const companyName = this.parentElement.querySelector('h2').textContent;
+        // Simulate investment initiation – you can extend this to submit data or open a modal
+        alert(`Investment initiated successfully for ${companyName}!`);
+      });
+    });
+      function applyForm() {
+            document.querySelector('.apply-form').style.display = 'block';
+        alert('applyForm')
+      }
+  </script>
+</body>
+</html>
